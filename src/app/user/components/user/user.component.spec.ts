@@ -1,25 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { render, screen } from '@testing-library/angular';
 import { UserComponent } from './user.component';
 
 describe('UserComponent', () => {
-  let component: UserComponent;
-  let fixture: ComponentFixture<UserComponent>;
+  it('should find the paragrap text "Hi Adil"', async () => {
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ UserComponent ]
-    })
-    .compileComponents();
+    await render(UserComponent, {
+      declarations: [],
+      componentProperties: {
+        InwelcomeMsg: "Hi Adil"
+      } as any
+    });
+
+    expect(await screen.findByText(/Hi Adil/i)).toBeTruthy();
+
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UserComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

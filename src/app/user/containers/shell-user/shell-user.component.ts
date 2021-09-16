@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-shell-user',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShellUserComponent implements OnInit {
 
+  @Output() OutwellcomeMsg: string | undefined;
+
+  title = "Welcome to user!!"
+
   constructor() { }
 
   ngOnInit(): void {
+    this.OutwellcomeMsg = this.title;
   }
 
 }

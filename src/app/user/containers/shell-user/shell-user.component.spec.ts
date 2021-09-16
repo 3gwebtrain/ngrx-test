@@ -8,14 +8,15 @@ describe('ShellUserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShellUserComponent ]
+      declarations: [ShellUserComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ShellUserComponent);
     component = fixture.componentInstance;
+    component.title = "parent";
     fixture.detectChanges();
   });
 
