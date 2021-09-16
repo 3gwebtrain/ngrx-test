@@ -1,3 +1,9 @@
-<input type="search" placeholder="Username" [formControl]="search" />
-<pre>{{ user$ | async | json }}
-</pre>
+<section class="wrapper">
+    <header>Header goes here <a [routerLink]="'user'">Go to user</a></header>
+
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+
+    <footer>Footer goes here</footer>
+</section>
