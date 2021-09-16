@@ -11,6 +11,6 @@ import { UserComponent } from "./components/user/user.component";
   imports: [
     CommonModule,
     UserRoutingModule
-  ]
+  ],
 })
 export class UserModule { }
