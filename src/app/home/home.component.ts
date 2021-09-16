@@ -15,7 +15,7 @@ export class HomeComponent {
     switchMap((value) =>
       this.service.getUser(value).pipe(
         tap(console.log),
-        catchError(() => of({}))
+        catchError(({ error }) => of(error.errorMessage))
       )
     ),
     startWith('')

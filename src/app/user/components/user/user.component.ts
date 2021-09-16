@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -10,8 +10,16 @@ export class UserComponent implements OnInit {
   @Input()
   InwelcomeMsg!: string | undefined;
 
+  @Input() title!: string;
+
+  @Output() newUpdate = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void { }
+
+  updateTitle() {
+    this.newUpdate.emit();
+  }
 
 }

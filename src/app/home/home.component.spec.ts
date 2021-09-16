@@ -13,3 +13,14 @@ it('should search on username', async () => {
 
   await screen.findByText(/mocked-jbarif/i);
 });
+
+it('should empty object on empty value', async () => {
+  await render(HomeComponent, {
+    imports: [HttpClientModule, ReactiveFormsModule],
+  });
+
+  await userEvent.type(screen.getByRole('searchbox'), 'error');
+
+  await screen.findByText(/User not found/i);
+  // screen.debug();
+});
