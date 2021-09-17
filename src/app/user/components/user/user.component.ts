@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   @Input() title!: string;
 
   @Output() newUpdate = new EventEmitter();
+  @Output() newUsers = new EventEmitter();
 
   constructor() { }
 
@@ -20,6 +21,11 @@ export class UserComponent implements OnInit {
 
   updateTitle() {
     this.newUpdate.emit();
+  }
+
+  getUsers() {
+    console.log('get users called');
+    this.newUsers.emit();
   }
 
 }

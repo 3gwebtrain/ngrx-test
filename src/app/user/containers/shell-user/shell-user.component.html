@@ -1,3 +1,5 @@
 <section>
-    <app-user [InwelcomeMsg]="OutwellcomeMsg" [title]="newTitle" (newUpdate)="newUpdate()"></app-user>
+    <app-user (newUsers)="getNewUsers()" [InwelcomeMsg]="OutwellcomeMsg" [title]="newTitle"
+        (newUpdate)="getNewUpdate()">
+    </app-user>
 </section>
