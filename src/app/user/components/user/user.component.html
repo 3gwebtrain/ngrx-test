@@ -2,3 +2,6 @@
 <h2>{{title}}</h2>
 <button (click)="updateTitle()">Update Title</button>
 <button (click)="getUsers()">Get Users</button>
+<ul>
+    <li *ngFor="let user of newUsers">{{user.title}}</li>
+</ul>

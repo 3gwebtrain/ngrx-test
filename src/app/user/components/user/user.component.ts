@@ -1,21 +1,27 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { PropUser } from '../../store/reducer';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent implements OnInit {
 
   @Input()
   InwelcomeMsg!: string | undefined;
 
-  @Input() title!: string;
+  @Input() title: string;
+  @Input() newUsers: PropUser[] | null;
 
   @Output() newUpdate = new EventEmitter();
-  @Output() newUsers = new EventEmitter();
+  @Output() getNewUsers = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+    this.title = "";
+    this.newUsers = [];
+  }
 
   ngOnInit(): void { }
 
@@ -25,7 +31,7 @@ export class UserComponent implements OnInit {
 
   getUsers() {
     console.log('get users called');
-    this.newUsers.emit();
+    this.getNewUsers.emit();
   }
 
 }

@@ -1,9 +1,6 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
-import { AppState } from "./../../appStore/app.reduer";
-
-const usersSelector = createFeatureSelector<AppState>("store");
+const usersSelector = createFeatureSelector<any>("store");
 
 export const selectUsers = createSelector(usersSelector, (state) => {
-    console.log('selector', state);
-    return state.users;
+    return state.reducerUser.users;
 })

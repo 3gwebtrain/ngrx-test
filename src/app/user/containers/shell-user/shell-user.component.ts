@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { select, Store } from "@ngrx/store";
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { PropUsers } from '../../store/reducer';
+import { PropUser } from '../../store/reducer';
 import { AppReducer, AppState } from "./../../../appStore/app.reduer";
 import * as actions from "./../../store/actions";
 import { selectUsers } from "./../../store/selectors";
@@ -18,12 +18,11 @@ export class ShellUserComponent implements OnInit {
 
   @Output() OutwellcomeMsg: string | undefined;
   @Output() newTitle: string;
+  @Output() users$: Observable<PropUser[]>;
 
   title = "Welcome to user!!";
   countString = "countLogic";
   count: number;
-  users$: Observable<PropUsers[]>;
-
 
   constructor(private store: Store<AppState>) {
     this.count = 0;
@@ -33,7 +32,7 @@ export class ShellUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.OutwellcomeMsg = this.title;
-    this.users$ = this.store.pipe(select(selectUsers));
+    this.users$ = this.store.select(selectUsers);
   }
 
   getNewUpdate() {
@@ -41,9 +40,14 @@ export class ShellUserComponent implements OnInit {
     this.newTitle = this.count + this.countString;
   }
 
-  getNewUsers() {
+  setNewUsers() {
     console.log('call');
-    this.store.dispatch(actions.actionGetUsers());
+    this.store.select(selectUsers).subscribe(data => {
+      if (!data.length) {
+        this.store.dispatch(actions.actionGetUsers());
+      }
+    });
+
   }
 
 }
