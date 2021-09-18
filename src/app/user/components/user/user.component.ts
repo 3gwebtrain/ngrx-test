@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { PropUser } from '../../store/reducer';
+import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges, ChangeDetectionStrategy, OnChanges, SimpleChange, ChangeDetectorRef } from '@angular/core';
+import { PropUser, PropUsers } from '../../store/reducer';
 
 @Component({
   selector: 'app-user',
@@ -7,7 +7,7 @@ import { PropUser } from '../../store/reducer';
   styleUrls: ['./user.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnChanges {
 
   @Input()
   InwelcomeMsg!: string | undefined;
@@ -18,20 +18,29 @@ export class UserComponent implements OnInit {
   @Output() newUpdate = new EventEmitter();
   @Output() getNewUsers = new EventEmitter();
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
     this.title = "";
     this.newUsers = [];
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // this.cdRef.detach();
+    this.getUsers();
+  }
+
+  ngOnChanges(changes: SimpleChanges) { }
 
   updateTitle() {
     this.newUpdate.emit();
   }
 
   getUsers() {
-    console.log('get users called');
     this.getNewUsers.emit();
+    // this.cdRef.detectChanges();
+  }
+
+  trackByFn(index: number, item: PropUser) {
+    return item.id;
   }
 
 }

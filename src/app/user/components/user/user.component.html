@@ -2,6 +2,13 @@
 <h2>{{title}}</h2>
 <button (click)="updateTitle()">Update Title</button>
 <button (click)="getUsers()">Get Users</button>
-<ul>
-    <li *ngFor="let user of newUsers">{{user.title}}</li>
-</ul>
+
+<div class="card-holder">
+    <div class="card" style="width: 18rem;" *ngFor="let user of newUsers; trackBy:trackByFn">
+        <div class="card-body">
+            <h5 class="card-title">{{user.id}} {{user.title}}</h5>
+            <p class="card-text">{{user.body}}</p>
+            <a routerLink="viewUser/{{user.id}}" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+</div>
