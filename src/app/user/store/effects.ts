@@ -18,6 +18,7 @@ export class UserEffects {
                 catchError((error) => of(actionGetUsersFailure({ error })))
             ))
         )
-    )
+    );
+
 
 }

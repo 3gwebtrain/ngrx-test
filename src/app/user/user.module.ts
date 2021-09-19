@@ -1,12 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { UserComponent } from "./components/user/user.component";
-import { ShellUserComponent } from "./containers/shell-user/shell-user.component";
+import { UserViewComponent } from "./components/user-view/user-view.component";
+import { ShellUserViewComponent } from "./containers/shell-user-view/shell-user-view.component";
 import { UserRoutingModule } from './user-routing.module';
+import { ShellUserModuleComponent } from './user-module/container/shell-user-module.component';
+import { UserModuleComponent } from './user-module/component/user-module.component';
+import { ShellUserProfileComponent } from './containers/shell-user-profile/shell-user-profile.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
-  declarations: [ShellUserComponent, UserComponent],
+  declarations: [ShellUserViewComponent, UserViewComponent, ShellUserModuleComponent, UserModuleComponent, ShellUserProfileComponent, UserProfileComponent],
   imports: [
     CommonModule,
     UserRoutingModule

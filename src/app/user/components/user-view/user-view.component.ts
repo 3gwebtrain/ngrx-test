@@ -2,12 +2,12 @@ import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges, ChangeDe
 import { PropUser, PropUsers } from '../../store/reducer';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss'],
+  selector: 'app-user-view',
+  templateUrl: './user-view.component.html',
+  styleUrls: ['./user-view.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserComponent implements OnInit, OnChanges {
+export class UserViewComponent implements OnInit, OnChanges {
 
   @Input()
   InwelcomeMsg!: string | undefined;

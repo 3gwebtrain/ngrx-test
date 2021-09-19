@@ -1,0 +1,5 @@
+<section>
+    <app-user-view (getNewUsers)="setNewUsers()" [newUsers]="(users$|async)" [InwelcomeMsg]="OutwellcomeMsg"
+        [title]="newTitle" (newUpdate)="getNewUpdate()">
+    </app-user-view>
+</section>

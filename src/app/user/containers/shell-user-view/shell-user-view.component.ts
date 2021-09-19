@@ -3,18 +3,18 @@ import { select, Store } from "@ngrx/store";
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { PropUser } from '../../store/reducer';
-import { AppReducer, AppState } from "./../../../appStore/app.reduer";
-import * as actions from "./../../store/actions";
-import { selectUsers } from "./../../store/selectors";
+import { AppReducer, AppState } from "../../../appStore/app.reduer";
+import * as actions from "../../store/actions";
+import { selectUsers } from "../../store/selectors";
 
 
 
 @Component({
-  selector: 'app-shell-user',
-  templateUrl: './shell-user.component.html',
-  styleUrls: ['./shell-user.component.scss']
+  selector: 'app-shell-user-view',
+  templateUrl: './shell-user-view.component.html',
+  styleUrls: ['./shell-user-view.component.scss']
 })
-export class ShellUserComponent implements OnInit {
+export class ShellUserViewComponent implements OnInit {
 
   @Output() OutwellcomeMsg: string | undefined;
   @Output() newTitle: string;

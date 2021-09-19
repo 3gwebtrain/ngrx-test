@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/angular';
-import { UserComponent } from './user.component';
-import { ShellUserComponent } from './../../containers/shell-user/shell-user.component';
+import { UserViewComponent } from './user-view.component';
+import { ShellUserViewComponent } from '../../containers/shell-user-view/shell-user-view.component';
 
 describe('UserComponent', () => {
   it('should find the paragrap text "Hi Adil"', async () => {
 
-    await render(UserComponent, {
+    await render(UserViewComponent, {
       declarations: [],
       componentProperties: {
         InwelcomeMsg: "Hi Adil"
@@ -18,12 +18,12 @@ describe('UserComponent', () => {
 
 });
 
-describe('ShellUserComponent', () => {
+describe('ShellUserViewComponent', () => {
   it('should find the paragrap text "Hi Adil"', async () => {
 
-    const component = await render(ShellUserComponent, {
+    const component = await render(ShellUserViewComponent, {
       componentProperties: { countString: "CTS" },
-      declarations: [UserComponent],
+      declarations: [UserViewComponent],
     });
 
     const button = component.getByText("Update Title");
