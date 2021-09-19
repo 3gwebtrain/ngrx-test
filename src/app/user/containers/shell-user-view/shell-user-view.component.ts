@@ -41,7 +41,6 @@ export class ShellUserViewComponent implements OnInit {
   }
 
   setNewUsers() {
-    console.log('call');
     this.store.select(selectUsers).subscribe(data => {
       if (!data.length) {
         this.store.dispatch(actions.actionGetUsers());

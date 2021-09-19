@@ -1,2 +1,5 @@
 <h1>Shell</h1>
-<app-user-profile [userProfile]="(userProfile$|async)!"></app-user-profile>
+<div>
+    <app-user-profile [studyAt]="standClass" [userProfile]="(userProfile$|async)!">
+    </app-user-profile>
+</div>

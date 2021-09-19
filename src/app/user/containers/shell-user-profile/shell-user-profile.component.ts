@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { actionGetProfile } from "./../../store/actions";
-import { selectProfile } from "./../../store/selectors";
-import { select, Store } from "@ngrx/store";
-import { PropUser } from '../../store/reducer';
-import { Observable, pipe } from 'rxjs';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Store, select } from "@ngrx/store";
+import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
+import { PropUser } from '../../store/reducer';
+import { actionGetProfile } from './../../store/actions';
+import { selectProfile } from "./../../store/selectors";
 
 @Component({
   selector: 'app-shell-user-profile',
@@ -14,12 +14,15 @@ import { map } from "rxjs/operators";
 export class ShellUserProfileComponent implements OnInit {
 
   @Output() userProfile$: Observable<PropUser> = new EventEmitter<PropUser>();
+  @Output() standClass: string;
 
-  constructor(private readonly store: Store) { }
+  constructor(private readonly store: Store) {
+    this.standClass = '12th';
+  }
 
   ngOnInit(): void {
-
-    this.userProfile$ = this.store.select(selectProfile).pipe(map((data: PropUser) => data));
+    this.store.dispatch(actionGetProfile());
+    this.store.select(selectProfile).subscribe(data => console.log('data', data));
   }
 
 }

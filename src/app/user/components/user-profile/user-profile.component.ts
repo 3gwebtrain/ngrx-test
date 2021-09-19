@@ -10,9 +10,11 @@ import { PropUser } from '../../store/reducer';
 export class UserProfileComponent implements OnInit, OnChanges {
 
   @Input() userProfile: PropUser | null;
+  @Input() studyAt: string;
 
   constructor() {
-    this.userProfile = { userId: 0, id: 0, title: "", body: "" }
+    this.userProfile = { userId: 0, id: 0, title: "", body: "" };
+    this.studyAt = "";
   }
 
   ngOnInit(): void {
@@ -20,7 +22,9 @@ export class UserProfileComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(change: SimpleChanges) {
-    console.log(change.userProfile.currentValue);
+    if (this.userProfile) {
+      console.log(this.userProfile);
+    }
   }
 
 }

@@ -1,4 +1,3 @@
-import { state } from "@angular/animations";
 import { Action, createReducer, on } from "@ngrx/store";
 import * as userActions from "./actions";
 
@@ -30,7 +29,7 @@ const reducer = createReducer(initialState,
     on(userActions.actionGetUsers, ((state, action) => ({ ...state }))),
     on(userActions.actionGetUsersSuccess, ((state, action) => ({ ...state, users: action.users }))),
 
-    on(userActions.actionGetProfile, ((state, action) => ({ ...state, profile: action.payload }))),
+    on(userActions.actionGetProfile, ((state, action) => ({ ...state, profile: state.profile }))),
     on(userActions.actionGetProfileSuccess, ((state, action) => ({ ...state, profile: action.user }))),
     on(userActions.actionGetProfileFailure, ((state, action) => ({ ...state, error: action.error }))),
 )
