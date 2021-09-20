@@ -6,9 +6,9 @@ export const userActions = {
     GET_USERS_SUCESS: '[users] Get Users Success',
     GET_USERS_FAILURE: '[users] Get Users Failure',
 
-    GET_PROFILE: '[users] Get Users',
-    GET_PROFILE_SUCESS: '[users] Get Users Success',
-    GET_PROFLE_FAILURE: '[users] Get Users Failure',
+    GET_PROFILE: '[profile] Get Profile',
+    GET_PROFILE_SUCESS: '[profile] Get Profile Success',
+    GET_PROFLE_FAILURE: '[profile] Get Profile Failure',
 }
 
 export const actionGetUsers = createAction(userActions.GET_USERS);

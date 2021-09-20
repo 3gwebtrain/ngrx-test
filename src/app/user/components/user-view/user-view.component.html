@@ -1,14 +1,14 @@
 <p>{{InwelcomeMsg}}</p>
 <h2>{{title}}</h2>
-<button (click)="updateTitle()">Update Title</button>
-<button (click)="getUsers()">Get Users</button>
+<button data-testid="updateTitle" (click)="updateTitle()">Update Title</button>
+<button data-testid="getUsers" (click)="getUsers()">Get Users</button>
 
 <div class="card-holder">
     <div class="card" style="width: 18rem;" *ngFor="let user of newUsers; trackBy:trackByFn">
         <div class="card-body">
             <h5 class="card-title">{{user.id}} {{user.title}}</h5>
             <p class="card-text">{{user.body}}</p>
-            <a routerLink="profile/{{user.id}}" class="btn btn-primary">Go somewhere</a>
+            <a [routerLink]="['profile', user.id]" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
 </div>

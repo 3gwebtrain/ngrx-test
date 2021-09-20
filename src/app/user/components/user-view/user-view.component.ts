@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges, ChangeDetectionStrategy, OnChanges, SimpleChange, ChangeDetectorRef } from '@angular/core';
-import { PropUser, PropUsers } from '../../store/reducer';
+import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges, ChangeDetectionStrategy, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { PropUser } from '../../store/reducer';
 
 @Component({
   selector: 'app-user-view',

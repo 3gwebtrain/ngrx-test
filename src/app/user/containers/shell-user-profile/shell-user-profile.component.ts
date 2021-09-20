@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store, select } from "@ngrx/store";
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { map } from "rxjs/operators";
 import { PropUser } from '../../store/reducer';
 import { actionGetProfile } from './../../store/actions';
@@ -22,7 +22,7 @@ export class ShellUserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(actionGetProfile());
-    this.store.select(selectProfile).subscribe(data => console.log('data', data));
+    this.userProfile$ = this.store.pipe(select(selectProfile));
   }
 
 }
